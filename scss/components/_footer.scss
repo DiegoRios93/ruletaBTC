@@ -1,0 +1,32 @@
+.footer{
+	background-color: black;
+	.centrarContenido{
+		text-align: center;
+	}
+	nav{
+		li{
+			padding: 10px 0;
+		}
+	}
+	a{
+		text-decoration: none;
+		color: white;
+	}
+	h5{
+		color: white;
+	}
+	ul{
+		list-style:none;
+		li{
+			color: white;
+		}
+	}
+	.parrafoFooter{
+		font-style: italic;
+		padding-top: 50px;
+	}
+	span{
+		color: $backColorTwo;
+		text-transform: uppercase;
+	}
+}

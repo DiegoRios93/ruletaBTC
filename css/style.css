@@ -1,0 +1,116 @@
+/*Variables*/
+/*General, caract para muchos elementos*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Oxygen', sans-serif; }
+
+body {
+  background-color: #1c1b1a; }
+
+.row {
+  width: 90%;
+  margin: 0 auto;
+  padding: 25px 0; }
+
+h1 {
+  font-size: 5.5em;
+  font-family: 'Anton', sans-serif;
+  color: #99F443; }
+
+p {
+  color: whitesmoke;
+  font-size: 1.1em; }
+
+#particles-js {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1; }
+
+/*Header , encabezado para todas las secciones el mismo*/
+.header .pTitle {
+  font-size: 2.5em;
+  text-transform: uppercase;
+  color: #99F443; }
+
+.header button {
+  padding: 7px 15px;
+  background-color: black;
+  margin-top: 45px;
+  border-radius: 10px;
+  font-weight: bold; }
+  .header button a {
+    text-decoration: none;
+    color: #99F443; }
+
+.header img {
+  width: 70%; }
+
+.header .textAlignCenter {
+  text-align: center; }
+
+.header .marginTop {
+  margin-top: 50px; }
+
+.content p {
+  text-align: center; }
+  .content p span {
+    color: #99F443;
+    font-size: 1.2em; }
+
+.card {
+  background-color: black; }
+  .card span {
+    color: #99F443; }
+  .card .tachar {
+    text-decoration: line-through;
+    color: white; }
+
+.ruletaContenido button {
+  padding: 7px 15px;
+  background-color: black;
+  color: #99F443;
+  margin-top: 45px;
+  border-radius: 10px;
+  font-weight: bold; }
+
+.footer {
+  background-color: black; }
+  .footer .centrarContenido {
+    text-align: center; }
+  .footer nav li {
+    padding: 10px 0; }
+  .footer a {
+    text-decoration: none;
+    color: white; }
+  .footer h5 {
+    color: white; }
+  .footer ul {
+    list-style: none; }
+    .footer ul li {
+      color: white; }
+  .footer .parrafoFooter {
+    font-style: italic;
+    padding-top: 50px; }
+  .footer span {
+    color: #99F443;
+    text-transform: uppercase; }
+
+.tiendaContenido {
+  justify-content: center; }
+  .tiendaContenido .achicarTarjetas {
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 15px; }
+    .tiendaContenido .achicarTarjetas h2 {
+      color: #99F443;
+      padding-top: 15px;
+      font-size: 20px; }
+    .tiendaContenido .achicarTarjetas p {
+      color: white; }
+    .tiendaContenido .achicarTarjetas form label {
+      color: white; }
+    .tiendaContenido .achicarTarjetas form input {
+      background-color: black; }

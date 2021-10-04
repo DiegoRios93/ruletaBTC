@@ -1,0 +1,31 @@
+.content{
+	p{
+		text-align: center;
+		span{
+			color: $backColorTwo;
+			font-size: $fontText + 0.1;
+		}
+	}
+}
+
+.card{
+	background-color: black;
+	span{
+		color: $backColorTwo;
+	}
+	.tachar{
+		text-decoration: line-through;
+		color: white;
+	}
+}
+
+.ruletaContenido{
+	button{
+		padding: 7px 15px;
+		background-color: black;
+		color: $backColorTwo;
+		margin-top: 45px;
+		border-radius: 10px;
+		font-weight: bold;
+	}
+}

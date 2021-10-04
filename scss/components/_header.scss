@@ -1,0 +1,32 @@
+/*Header , encabezado para todas las secciones el mismo*/
+
+.header{
+	.pTitle{
+		font-size: $fontPTitle;
+		text-transform: uppercase;
+		color: $backColorTwo;
+	}
+	button{
+		a{
+			text-decoration: none;
+			color: $backColorTwo;
+		}
+		padding: 7px 15px;
+		background-color: black;
+		margin-top: 45px;
+		border-radius: 10px;
+		font-weight: bold;
+	}
+	img{
+		width: 70%;
+	}
+	.textAlignCenter{
+		text-align: center;
+	}
+	.marginTop{
+		margin-top: 50px;
+	}
+}
+
+
+
