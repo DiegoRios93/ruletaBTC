@@ -75,6 +75,9 @@ p {
   border-radius: 10px;
   font-weight: bold; }
 
+.ruletaContenido p {
+  color: #99F443; }
+
 .footer {
   background-color: black; }
   .footer .centrarContenido {
