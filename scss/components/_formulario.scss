@@ -1,0 +1,91 @@
+.formularioYDT{
+	width: 95%;
+	margin: auto;
+	padding: 25px 0;
+	justify-content: center;
+	.formContact{
+		width: 90%;
+		form{
+			background-color: black;
+			width: 70%;
+			margin: auto;
+			padding: 20px;
+			box-shadow: 0 0 8px 0 black;
+			border-radius: 10px;
+			h2{
+				color:$backColorTwo;
+				text-align: center;
+				padding-top: 20px;
+			}
+			.grupo{
+				margin: 30px;
+				position: relative;
+			}
+			input{
+				color: white;
+				background: none;
+				font-size: 15px;
+				padding: 10px 10px 10px 5px;
+				display: block;
+				border: none;
+				width: 100%;
+				border-bottom: 2px solid whitesmoke;
+				&:focus{
+					outline: none;
+					color: white;
+				}
+				&:focus~label{
+					top: -14px;
+					font-size: 12px;
+					color: $backColorTwo;
+				}
+				&:valid~label{
+					top: -14px;
+					font-size: 12px;
+					color: $backColorTwo;
+				}
+			}
+			label{
+				color: white;
+				font-size: 16px;
+				position: absolute;
+				top: 10px;
+				left: 5px;
+				transition: all 0.4s ease-in-out;
+				pointer-events: none;
+			}
+			.barra{
+				position: relative;
+				display: block;
+				width: 100%;
+				&::before{
+					content: "";
+					height: 2px;
+					width: 0%;	
+					position: absolute;
+					bottom: 0;
+					background: linear-gradient(to right, $backColorOne, $backColorTwo);
+					transition: width 0.5s ease;
+					left: 0;
+				}
+			}
+			input:focus~.barra::before{
+				width: 100%;
+			}
+			button{ 
+				background: linear-gradient(to right, $backColorOne, $backColorTwo);
+			 	border: none;
+				display: block;
+				width: 80%;
+				margin: 10px auto;
+				color: black;
+				height: 40px;
+				border-radius: 10px;
+				font-size: 16px;
+				cursor: pointer;
+				text-transform: uppercase;
+				font-weight: bold;
+			}
+		}
+	}
+}

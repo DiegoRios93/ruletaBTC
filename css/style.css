@@ -117,3 +117,81 @@ p {
       color: white; }
     .tiendaContenido .achicarTarjetas form input {
       background-color: black; }
+
+.formularioYDT {
+  width: 95%;
+  margin: auto;
+  padding: 25px 0;
+  justify-content: center; }
+  .formularioYDT .formContact {
+    width: 90%; }
+    .formularioYDT .formContact form {
+      background-color: black;
+      width: 70%;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 0 0 8px 0 black;
+      border-radius: 10px; }
+      .formularioYDT .formContact form h2 {
+        color: #99F443;
+        text-align: center;
+        padding-top: 20px; }
+      .formularioYDT .formContact form .grupo {
+        margin: 30px;
+        position: relative; }
+      .formularioYDT .formContact form input {
+        color: white;
+        background: none;
+        font-size: 15px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid whitesmoke; }
+        .formularioYDT .formContact form input:focus {
+          outline: none;
+          color: white; }
+        .formularioYDT .formContact form input:focus ~ label {
+          top: -14px;
+          font-size: 12px;
+          color: #99F443; }
+        .formularioYDT .formContact form input:valid ~ label {
+          top: -14px;
+          font-size: 12px;
+          color: #99F443; }
+      .formularioYDT .formContact form label {
+        color: white;
+        font-size: 16px;
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        transition: all 0.4s ease-in-out;
+        pointer-events: none; }
+      .formularioYDT .formContact form .barra {
+        position: relative;
+        display: block;
+        width: 100%; }
+        .formularioYDT .formContact form .barra::before {
+          content: "";
+          height: 2px;
+          width: 0%;
+          position: absolute;
+          bottom: 0;
+          background: linear-gradient(to right, #1c1b1a, #99F443);
+          transition: width 0.5s ease;
+          left: 0; }
+      .formularioYDT .formContact form input:focus ~ .barra::before {
+        width: 100%; }
+      .formularioYDT .formContact form button {
+        background: linear-gradient(to right, #1c1b1a, #99F443);
+        border: none;
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        color: black;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold; }

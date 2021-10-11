@@ -34,33 +34,34 @@ const jugador = new Jugador("Diego",0);
 
 
 
-let paquete = prompt(`Escribí "pack1" si queres una oportunidad, "pack2" si queres 3 oportunidades o "pack3" para 10 chances de ganar`);
-
 //Creamos un elemento en HTML, después de que el usuario ingrese el paquete, agregamos el nro de oportunidades
 
-const pOportunidades = document.createElement("p")
 
-if(paquete == "pack1"){
+const pOportunidades = document.createElement("p");
+
+const mostrarPack = () => {
+
+if(document.getElementById("packElegido").value == "pack1"){
   pOportunidades.textContent = "1";
   document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-}else if (paquete == "pack2"){
+}else if (document.getElementById("packElegido").value == "pack2"){
   pOportunidades.textContent = "3";
   document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-}else if (paquete == "pack3"){
+}else if (document.getElementById("packElegido").value == "pack3"){
   pOportunidades.textContent = "10";
   document.getElementById("divConPOportunidades").appendChild(pOportunidades);
 }else{
   pOportunidades.textContent = "El pack ingresado es inválido";
   document.getElementById("divConPOportunidades").appendChild(pOportunidades);
+};
+
 }
-
-
 
 //Ahora creamos nuestra función
 
 const iniciarGame = () => {
   let i = 0;
-  if(paquete == "pack1"){
+  if(document.getElementById("packElegido").value == "pack1"){
     while(i < 1){
       i++;
       jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
@@ -76,7 +77,7 @@ const iniciarGame = () => {
       jugador.casilla=0;
     }
   }
-  if(paquete == "pack2"){
+  if(document.getElementById("packElegido").value == "pack2"){
     while(i < 3){
       
       i++;
@@ -92,7 +93,7 @@ const iniciarGame = () => {
       jugador.casilla=0;
     }
   }
-  if(paquete == "pack3"){
+  if(document.getElementById("packElegido").value == "pack3"){
     while(i < 10){
       
       i++;
@@ -111,4 +112,4 @@ const iniciarGame = () => {
   
 }
 
-iniciarGame();
+
