@@ -22,6 +22,47 @@ class Jugador{
   }
 }
 
+//Imprimir en DOM los packs 
+
+
+let paquetes = [];
+let imprimirproductos= document.getElementById("agregarPacks");
+let elemento= "";
+
+
+class Productos{
+  constructor(chances,precio, img, ruta){
+    this.chances = chances;
+    this.precio = precio;
+    this.img = img;
+    this.ruta = ruta;
+  }
+}
+
+let pack1 = new Productos(1, 25, "assets/img/unTicket.jpg", "pages/tienda.html#pack1comprar");
+let pack2 = new Productos(3, 70, "assets/img/tresTickets.jpg", "pages/tienda.html#pack2comprar");
+let pack3 = new Productos(10, 220, "assets/img/diezTickets.jpg", "pages/tienda.html#pack3comprar");
+paquetes.push(pack1, pack2, pack3);
+
+
+for (let i = 0; i < paquetes.length; i++){
+    elemento += `
+    <div class="col-lg-4 col-md-6 col-xs-12">
+      <div class="card" style="width: 18rem;">
+        <img src="${paquetes[i].img}" class="card-img-top" alt="imagenTickets">
+        <div class="card-body">
+          <h5 class="card-title">${paquetes[i].chances} Ticket/s</h5>
+          <p class="card-text">Tickets con ${paquetes[i].chances} oportunidad/es para ganar 1 BTC, precio <span>${paquetes[i].precio} USDT</span>, puedes adquirirlos con USDT o BNB.</p>
+          <a href="${paquetes[i].ruta}" class="btn btn-primary">Buy</a>
+        </div>
+      </div>
+    </div>
+    `
+imprimirproductos.innerHTML = elemento
+}
+
+
+
 
 
 //Creamos las constantes ahora, atraves de la clase creamos el objeto
@@ -33,83 +74,84 @@ true);
 const jugador = new Jugador("Diego",0);
 
 
+//
+//
+//
+// Agregamos el número de oportunidades al HTML Principal
 
-//Creamos un elemento en HTML, después de que el usuario ingrese el paquete, agregamos el nro de oportunidades
+let datoGuardado =  localStorage.getItem('paqueteComprado');
+
+let imprimirProductosDos = document.getElementById("divConPOportunidades");
+
+imprimirProductosDos.innerHTML += `<p>${localStorage.getItem('paqueteComprado')}</p>`;
 
 
-const pOportunidades = document.createElement("p");
+//
+//
+//
+//
+//Evento al botón PLAY
 
-const mostrarPack = () => {
+let jugando = document.getElementById("jugarALaRuleta");
 
-if(document.getElementById("packElegido").value == "pack1"){
-  pOportunidades.textContent = "1";
-  document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-}else if (document.getElementById("packElegido").value == "pack2"){
-  pOportunidades.textContent = "3";
-  document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-}else if (document.getElementById("packElegido").value == "pack3"){
-  pOportunidades.textContent = "10";
-  document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-}else{
-  pOportunidades.textContent = "El pack ingresado es inválido";
-  document.getElementById("divConPOportunidades").appendChild(pOportunidades);
-};
-
-}
-
-//Ahora creamos nuestra función
-
-const iniciarGame = () => {
+const jugarRuleta = () => {
   let i = 0;
-  if(document.getElementById("packElegido").value == "pack1"){
+  if(localStorage.getItem('paqueteComprado') == "1"){
     while(i < 1){
       i++;
       jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
       if(jugador.casilla == 273){
-      console.log(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      localStorage.removeItem("paqueteComprado");
       juegoDeLaRuleta.game = false;
       break
       
       } else{
-      console.log(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
-      
+      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+      localStorage.removeItem("paqueteComprado");
       }
       jugador.casilla=0;
     }
   }
-  if(document.getElementById("packElegido").value == "pack2"){
-    while(i < 3){
-      
+  if(localStorage.getItem('paqueteComprado') == "3"){
+   
+      while(i < 3){
       i++;
       jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
       if(jugador.casilla == 273){
-      console.log(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      
       juegoDeLaRuleta.game = false;
       break
       
       } else{
-      console.log(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+      localStorage.removeItem("paqueteComprado");
       }
       jugador.casilla=0;
     }
   }
-  if(document.getElementById("packElegido").value == "pack3"){
+  if(localStorage.getItem('paqueteComprado') == "10"){
     while(i < 10){
       
       i++;
       jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
       if(jugador.casilla == 273){
-      console.log(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+      localStorage.removeItem("paqueteComprado");
       juegoDeLaRuleta.game = false;
       break
       
       } else{
-      console.log(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+      localStorage.removeItem("paqueteComprado");
       }
       jugador.casilla=0;
     }
   }
   
 }
+
+jugarALaRuleta.addEventListener("click", jugarRuleta);
 
 

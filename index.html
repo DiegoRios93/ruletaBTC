@@ -36,70 +36,15 @@
 				<p>Tienes 3 opciones de adquirir packs de tickets, <span>x1</span>, <span>x3</span> o <span>x10</span>, aprovéchalos ahora que están con <span>descuento.</span></p>
 			</div>	
 		</div>
-		<div class="row cards">
-			<div class="col-lg-4 col-md-6 col-xs-12">
-				<div class="card" style="width: 18rem;">
-				  <img src="assets/img/unTicket.jpg" class="card-img-top" alt="imagenUnTicket">
-				  <div class="card-body">
-				    <h5 class="card-title">1 Ticket</h5>
-				    <p class="card-text">Ticket con una oportunidad para ganar 1 BTC, precio <span class="tachar">50 USDT</span> <span>25 USDT</span>, puedes adquirirlo con USDT o BNB.</p>
-				    <a href="pages/tienda.html#pack1comprar" class="btn btn-primary" target="_blank">Buy</a>
-				  </div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-xs-12">
-				<div class="card" style="width: 18rem;">
-				  <img src="assets/img/tresTickets.jpg" class="card-img-top" alt="imagenTresTickets">
-				  <div class="card-body">
-				    <h5 class="card-title">3 Tickets</h5>
-				    <p class="card-text">Tickets con tres oportunidades para ganar 1 BTC, precio <span class="tachar">140 USDT</span> <span>70 USDT</span>, puedes adquirirlos con USDT o BNB.</p>
-				    <a href="pages/tienda.html#pack2comprar" class="btn btn-primary" target="_blank">Buy</a>
-				  </div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-xs-12">
-				<div class="card" style="width: 18rem;">
-				  <img src="assets/img/diezTickets.jpg" class="card-img-top" alt="imagenDiezTickets">
-				  <div class="card-body">
-				    <h5 class="card-title">10 Tickets</h5>
-				    <p class="card-text">Tickets con diez oportunidades para ganar 1 BTC, precio <span class="tachar">400 USDT</span> <span>220 USDT</span>, puedes adquirirlos con USDT o BNB.</p>
-				    <a href="pages/tienda.html#pack3comprar" class="btn btn-primary" target="_blank">Buy</a>
-				  </div>
-				</div>
-			</div>
 		</div>
-		<div class="row formularioYDT">
-			<div class="col-lg-7 col-md-12 col-xs-12 formContact">
-				<form method="post" id="form">
-					<div class="form">
-						<h2 class="h2Form">Elegí tu pack</h2>
-						<div class="grupo">
-							<input type="text" name="name" id="nombreForm"><span class="barra"></span>
-							<label for="name">Nombre y apellido</label>
-						</div>
-						<div class="grupo">
-							<input type="number" name="telefono"><span class="barra"></span>
-							<label for="telefono">Teléfono</label>
-						</div>
-						<div class="grupo">
-							<input type="text" name="localidad"><span class="barra"></span>
-							<label for="localidad">Localidad</label>
-						</div>
-						<div class="grupo">
-							<input type="text" name="pack" id="packElegido"><span class="barra"></span>
-							<label for="pack">Elige tu pack: pack 1, pack2, pack3</label>
-						</div>
-						<button type="sumbit">Enviar</button>
-					</div>
-				</form>
-			</div>
-		</div>
+		<div class="row" id="agregarPacks"></div>
 		<div class="row ruletaContenido">
 			<div class="col-lg-9 col-md-12 col-xs-12" id="jugarRuletaId">
 				<img src="assets/img/imgJuego.png" alt="ruletaJuego">
 			</div>
 			<div class="col-lg-3 col-md-12 col-xs-12">
 				<p>Tienes <button id="divConPOportunidades"></button> oportunidad/es.</p>
+				<button id="jugarALaRuleta">Play</button>
 			</div>
 		</div>
 	</div>
@@ -108,9 +53,10 @@
 			<div class="col-lg-4 col-md-6 col-xs-12 centrarContenido">
 				<nav class="navegar">
 					<ul>
-						<li><a href="index.html" target="_blank">Inicio</a></li>
-						<li><a href="pages/juego.html" target="_blank">¿Como jugar?</a></li>
-						<li><a href="pages/tienda.html" target="_blank">Comprar packs</a></li>
+						<li><a href="index.html">Inicio</a></li>
+						<li><a href="pages/juego.html">¿Como jugar?</a></li>
+						<li><a href="pages/tienda.html">Comprar packs</a></li>
+						<li><a href="pages/administrador.html">Admin</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -130,7 +76,6 @@
 	</div>	
 
 
-	
 
 	<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
