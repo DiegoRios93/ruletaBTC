@@ -79,12 +79,18 @@ const jugador = new Jugador("Diego",0);
 //
 // Agregamos el número de oportunidades al HTML Principal
 
-let datoGuardado =  localStorage.getItem('paqueteComprado');
+
+let datoGuardado = 0;
+datoGuardado =  datoGuardado + Number(localStorage.getItem('COMPRA'));
+
 
 let imprimirProductosDos = document.getElementById("divConPOportunidades");
 
-imprimirProductosDos.innerHTML += `<p>${localStorage.getItem('paqueteComprado')}</p>`;
-
+if(datoGuardado == null){
+  imprimirProductosDos.innerHTML += `<p>0</p>`;
+}else{
+  imprimirProductosDos.innerHTML += `<p>${datoGuardado}</p>`;
+}
 
 //
 //
@@ -92,66 +98,32 @@ imprimirProductosDos.innerHTML += `<p>${localStorage.getItem('paqueteComprado')}
 //
 //Evento al botón PLAY
 
+
 let jugando = document.getElementById("jugarALaRuleta");
 
 const jugarRuleta = () => {
   let i = 0;
-  if(localStorage.getItem('paqueteComprado') == "1"){
-    while(i < 1){
+    while(i < datoGuardado){
       i++;
       jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
-      if(jugador.casilla == 273){
-      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
-      localStorage.removeItem("paqueteComprado");
-      juegoDeLaRuleta.game = false;
-      break
-      
-      } else{
-      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
-      localStorage.removeItem("paqueteComprado");
-      }
+        if(jugador.casilla == 273){
+        alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
+        localStorage.removeItem("COMPRA");
+        datoGuardado = 0;
+        juegoDeLaRuleta.game = false;
+        break
+        
+        } else{
+        alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
+        }
       jugador.casilla=0;
     }
-  }
-  if(localStorage.getItem('paqueteComprado') == "3"){
-   
-      while(i < 3){
-      i++;
-      jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
-      if(jugador.casilla == 273){
-      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
-      
-      juegoDeLaRuleta.game = false;
-      break
-      
-      } else{
-      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
-      localStorage.removeItem("paqueteComprado");
-      }
-      jugador.casilla=0;
-    }
-  }
-  if(localStorage.getItem('paqueteComprado') == "10"){
-    while(i < 10){
-      
-      i++;
-      jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
-      if(jugador.casilla == 273){
-      alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
-      localStorage.removeItem("paqueteComprado");
-      juegoDeLaRuleta.game = false;
-      break
-      
-      } else{
-      alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
-      localStorage.removeItem("paqueteComprado");
-      }
-      jugador.casilla=0;
-    }
+    localStorage.removeItem("COMPRA");
+    datoGuardado = 0;
   }
   
-}
 
 jugarALaRuleta.addEventListener("click", jugarRuleta);
+
 
 
