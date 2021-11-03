@@ -1,3 +1,19 @@
+//Api precio BTC
+
+const dollarContainer = document.getElementById('dollar');
+const usdAmount = document.getElementById('usd-amount');
+
+fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+    .then(response => response.json())
+    .then(data => displayData(data));
+
+const displayData = data => {
+    const usd = data.bpi.USD.rate_float;
+    usdAmount.textContent = `$${usd} USD`;
+
+}
+
+
 // Objetos y funciones
 
 //Comenzemos con entidad, primero la entidad tablero y luego la entidad jugador
@@ -66,14 +82,14 @@ imprimirproductos.innerHTML = elemento
 
 
 //Creamos las constantes ahora, atraves de la clase creamos el objeto
-
+/*
 const juegoDeLaRuleta = new Ruleta({valorMin:1, valorMax:500},
 273,
 true);
 
 const jugador = new Jugador("Diego",0);
 
-
+*/
 //
 //
 //
@@ -126,10 +142,10 @@ const jugarRuleta = () => {
 jugarALaRuleta.addEventListener("click", jugarRuleta);*/
 
 //Animación a la img de la rulera del LOGO
-
+/*
 $("#imgRuletaAnimada").on("click", ()=>{
   $("#imgRuletaAnimada").fadeOut("slow");
-});
+});*/
 
 
 

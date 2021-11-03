@@ -272,3 +272,16 @@ button {
   border-radius: 50px;
   z-index: 9999;
   cursor: pointer; }
+
+/*color del logo btc*/
+.bitcoin-item {
+  background-color: #ff8000;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border-radius: 50%; }
+
+.apiClass {
+  padding-left: 120px; }
+  .apiClass span {
+    color: #99F443; }
