@@ -20,6 +20,9 @@
 }
 
 .ruletaContenido{
+	.margenArriba{
+		padding-top: 100px;
+	}
 	button{
 		padding: 7px 15px;
 		background-color: black;
@@ -30,5 +33,11 @@
 	}
 	p{
 		color: $backColorTwo;
+	}
+	.modal-content{
+		background-color: $backColorOne;
+		.modal-title{
+			color: $backColorTwo;
+		}
 	}
 }
