@@ -1,3 +1,10 @@
+//sonidos
+
+let ruletaMusic = new Audio("./assets/sound/sonidoRuleta.mp3");
+let ganasteMusic = new Audio("./assets/sound/ganaste.mp3");
+
+
+
 //Api precio BTC
 
 const dollarContainer = document.getElementById('dollar');
@@ -77,22 +84,6 @@ for (let i = 0; i < paquetes.length; i++){
 imprimirproductos.innerHTML = elemento
 }
 
-
-
-
-
-//Creamos las constantes ahora, atraves de la clase creamos el objeto
-/*
-const juegoDeLaRuleta = new Ruleta({valorMin:1, valorMax:500},
-273,
-true);
-
-const jugador = new Jugador("Diego",0);
-
-*/
-//
-//
-//
 // Agregamos el número de oportunidades al HTML Principal
 
 
@@ -108,10 +99,26 @@ if(datoGuardado == null){
   imprimirProductosDos.textContent = datoGuardado;
 }
 
-//Agregado proyecto final
+//
+
+let btnInner = document.getElementById("ganadorONo");
+
+let agregarCartelModal = `
+<br><br>
+<span>¡GANASTE 1 BITCOIN!</span>
+<br><br>
+<p>En breve nos pondremos en contacto contigo</p>
+<p>Escribe tu mail aquí</p>
+<input type="mail" name="mail"></input>
+<button>Enviar</button>
+`;
 
 
-   
+let agregarCartelModal2 = `
+<br><br>
+<p>Seguí participando!</p>
+`;
+
 
     //Ruletaaaaaaaaaa!
     (function($) {
@@ -161,6 +168,10 @@ if(datoGuardado == null){
                 text: ':('
               },
               {
+                color: '#1c1b1a',
+                text: '1 BTC !'
+              },
+              {
                 color: '#e6471d',
                 text: ':('
               },
@@ -175,10 +186,6 @@ if(datoGuardado == null){
               {
                 color: '#be107f',
                 text: ':('
-              },
-              {
-                color: '#1c1b1a',
-                text: '1 BTC !'
               },
               {
                 color: '#3f297e',
@@ -440,11 +447,13 @@ if(datoGuardado == null){
             for (i = 1; i <= itemSize; i += 1) {
               var idx = i - 1;
               var rt = i * d + angleOffset;
+
               var itemHTML = $('<div class="' + itemSelector + '">');
               var labelHTML = '';
                   labelHTML += '<p class="' + labelSelector + '">';
                   labelHTML += '  <span class="text">' + data[idx].text + '<\/span>';
                   labelHTML += '<\/p>';
+
 
               $roulette.append(itemHTML);
               $roulette.children("." + itemSelector).eq(idx).append(labelHTML);
@@ -472,13 +481,12 @@ if(datoGuardado == null){
               return wrapW / (1 / Math.tan(rad));
             }
 
-            
-
               $btnStart.on("click", function() {
                 if(datoGuardado > 0){
                 datoGuardado--;
                 imprimirProductosDos.textContent = datoGuardado;
                 localStorage.setItem('COMPRA', datoGuardado);
+                ruletaMusic.play();
                 rotation();
                 }else if(datoGuardado <= 0 ){
                 $btnStart.attr("data-toggle","modal");
@@ -486,10 +494,7 @@ if(datoGuardado == null){
                 localStorage.removeItem("COMPRA");
                 datoGuardado = 0;
               }
-              });
-            
-
-              //agregado
+            });
 
               function rotation() {
                 
@@ -501,15 +506,135 @@ if(datoGuardado == null){
                   animateTo: completeA,
                   center: ["50%", "50%"],
                   easing: $.easing.esing,
+                   callback: function() {
+                    var currentA = $(this).getRotateAngle();
+
+                    console.log(currentA);
+                      if ( currentA % 360 >= 0 && currentA % 360 <=5){
+                        btnInner.innerHTML = agregarCartelModal;
+                        ganasteMusic.play();
+                        particlesJS({
+                                      "particles": {
+                                        "number": {
+                                          "value": 578,
+                                          "density": {
+                                            "enable": true,
+                                            "value_area": 631.3181133058181
+                                          }
+                                        },
+                                        "color": {
+                                          "value": "#efff00"
+                                        },
+                                        "shape": {
+                                          "type": "edge",
+                                          "stroke": {
+                                            "width": 0.1,
+                                            "color": "#ffe100"
+                                          },
+                                          "polygon": {
+                                            "nb_sides": 5
+                                          },
+                                          "image": {
+                                            "src": "img/github.svg",
+                                            "width": 200,
+                                            "height": 200
+                                          }
+                                        },
+                                        "opacity": {
+                                          "value": 0.8979107540846928,
+                                          "random": true,
+                                          "anim": {
+                                            "enable": false,
+                                            "speed": 1,
+                                            "opacity_min": 0.1,
+                                            "sync": false
+                                          }
+                                        },
+                                        "size": {
+                                          "value": 10,
+                                          "random": true,
+                                          "anim": {
+                                            "enable": false,
+                                            "speed": 40,
+                                            "size_min": 0.1,
+                                            "sync": false
+                                          }
+                                        },
+                                        "line_linked": {
+                                          "enable": false,
+                                          "distance": 500,
+                                          "color": "#ffffff",
+                                          "opacity": 0.4,
+                                          "width": 2
+                                        },
+                                        "move": {
+                                          "enable": true,
+                                          "speed": 6,
+                                          "direction": "bottom",
+                                          "random": false,
+                                          "straight": false,
+                                          "out_mode": "out",
+                                          "bounce": false,
+                                          "attract": {
+                                            "enable": false,
+                                            "rotateX": 600,
+                                            "rotateY": 1200
+                                          }
+                                        }
+                                      },
+                                      "interactivity": {
+                                        "detect_on": "canvas",
+                                        "events": {
+                                          "onhover": {
+                                            "enable": true,
+                                            "mode": "bubble"
+                                          },
+                                          "onclick": {
+                                            "enable": true,
+                                            "mode": "repulse"
+                                          },
+                                          "resize": true
+                                        },
+                                        "modes": {
+                                          "grab": {
+                                            "distance": 400,
+                                            "line_linked": {
+                                              "opacity": 0.5
+                                            }
+                                          },
+                                          "bubble": {
+                                            "distance": 400,
+                                            "size": 4,
+                                            "duration": 0.3,
+                                            "opacity": 1,
+                                            "speed": 3
+                                          },
+                                          "repulse": {
+                                            "distance": 200,
+                                            "duration": 0.4
+                                          },
+                                          "push": {
+                                            "particles_nb": 4
+                                          },
+                                          "remove": {
+                                            "particles_nb": 2
+                                          }
+                                        }
+                                      },
+                                      "retina_detect": true
+                                    });
+                      }
+                      else {
+                        btnInner.innerHTML = agregarCartelModal2;
+                      }
+                    },
                   duration: speed
                 });
               }
 
               function r(min, max) {
                 return Math.floor(Math.random() * (max - min + 1)) + min;
-              }
-
-           
+              }         
           });
         }
       });
@@ -520,42 +645,4 @@ if(datoGuardado == null){
       $('.box-roulette').roulette();
 
     });
-
-
-
-
-// 
-
-//
-//
-//
-//
-//Evento al botón PLAY
-
-/*
-let jugando = document.getElementById("jugarALaRuleta");
-
-const jugarRuleta = () => {
-  let i = 0;
-    while(i < datoGuardado){
-      i++;
-      jugador.casilla = jugador.casilla + jugador.girarRuleta(juegoDeLaRuleta.roulette.valorMin, juegoDeLaRuleta.roulette.valorMax)
-        if(jugador.casilla == 273){
-        alert(`${jugador.nombre}, el número que te tocó es ${jugador.casilla} ganaste el premio mayor, 1 BTC es tuyo.`);
-        localStorage.removeItem("COMPRA");
-        datoGuardado = 0;
-        juegoDeLaRuleta.game = false;
-        break
-        
-        } else{
-        alert(`${jugador.nombre}, te tocó el número ${jugador.casilla} fallaste, sigue intentando, si te quedaste sin intentos adquiere otro pack.`);
-        }
-      jugador.casilla=0;
-    }
-    localStorage.removeItem("COMPRA");
-    datoGuardado = 0;
-  }
-  
-
-jugarALaRuleta.addEventListener("click", jugarRuleta);*/
 
