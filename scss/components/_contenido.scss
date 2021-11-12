@@ -22,6 +22,9 @@
 .ruletaContenido{
 	.margenArriba{
 		padding-top: 100px;
+		@media only screen and (max-width: 767px){
+			padding-top: 0px;
+		}
 	}
 	button{
 		padding: 7px 15px;
@@ -66,5 +69,19 @@
 			font-size: 12px;
 			color: $backColorTwo;
 		}
+	}
+}
+
+@media only screen and (max-width: 767px){
+	.agregaPack{
+		.margenBottom{
+			margin-bottom: 15px;
+		}
+		.card{
+			margin: auto 15px;
+		}
+	}
+	.margenBottom{
+		margin-bottom: 15px;
 	}
 }
