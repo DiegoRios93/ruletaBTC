@@ -70,7 +70,9 @@ paquetes.push(pack1, pack2, pack3);
 
 for (let i = 0; i < paquetes.length; i++){
     elemento += `
-    <div class="col-lg-4 col-md-6 col-xs-12 margenBottom">
+    <div class="col-lg-4 col-md-6 col-xs-12 margenBottom" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
       <div class="card" style="width: 18rem;">
         <img src="${paquetes[i].img}" class="card-img-top" alt="imagenTickets">
         <div class="card-body">

@@ -115,6 +115,14 @@ p {
     font-size: 12px;
     color: #99F443; }
 
+.inputForm span {
+  font-size: 35px;
+  font-weight: bold; }
+
+.inputForm p {
+  font-size: 25px;
+  font-weight: bold; }
+
 @media only screen and (max-width: 767px) {
   .agregaPack .margenBottom {
     margin-bottom: 15px; }
